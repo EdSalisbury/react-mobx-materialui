@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
+
 
 @inject('PersonStore')
 @observer
@@ -12,26 +15,29 @@ class PersonList extends Component {
     render() {
         const { PersonStore } = this.props;
 
-        return (
+        return <MuiThemeProvider>
             <div>
                 <h1>Person List</h1>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Balance</th>
-                    </tr>
-
+                <Table>
+                <TableHeader displaySelectAll={false}>
+                    <TableRow>
+                        <TableHeaderColumn>Name</TableHeaderColumn>
+                        <TableHeaderColumn>Email</TableHeaderColumn>
+                        <TableHeaderColumn>Balance</TableHeaderColumn>
+                    </TableRow>
+                </TableHeader>
+                <TableBody displayRowCheckbox={false}>
                     {PersonStore.personData.map(person =>
-                    <tr>
-                        <td>{person.name.first} {person.name.last}</td>
-                        <td>{person.email}</td>
-                        <td>{person.balance}</td>
-                    </tr>
+                    <TableRow displaySelectAll={false}>
+                        <TableRowColumn>{person.name.first} {person.name.last}</TableRowColumn>
+                        <TableRowColumn>{person.email}</TableRowColumn>
+                        <TableRowColumn>{person.balance}</TableRowColumn>
+                    </TableRow>
                     )}
-                </table>
+                </TableBody>
+                </Table>
             </div>
-        );
+        </MuiThemeProvider>
     }
 }
 
