@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
-
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Paper from 'material-ui/Paper';
 
 @inject('PersonStore')
 @observer
@@ -13,31 +12,30 @@ class PersonList extends Component {
     }
 
     render() {
-        const { PersonStore } = this.props;
+        const {PersonStore} = this.props;
 
-        return <MuiThemeProvider>
-            <div>
-                <h1>Person List</h1>
-                <Table>
-                <TableHeader displaySelectAll={false}>
+        return (
+            <Paper>
+            <Table>
+                <TableHead>
                     <TableRow>
-                        <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Email</TableHeaderColumn>
-                        <TableHeaderColumn>Balance</TableHeaderColumn>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Email</TableCell>
+                        <TableCell>Balance</TableCell>
                     </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>
+                </TableHead>
+                <TableBody>
                     {PersonStore.personData.map(person =>
-                    <TableRow displaySelectAll={false}>
-                        <TableRowColumn>{person.name.first} {person.name.last}</TableRowColumn>
-                        <TableRowColumn>{person.email}</TableRowColumn>
-                        <TableRowColumn>{person.balance}</TableRowColumn>
-                    </TableRow>
+                        <TableRow>
+                            <TableCell>{person.name.first} {person.name.last}</TableCell>
+                            <TableCell>{person.email}</TableCell>
+                            <TableCell>{person.balance}</TableCell>
+                        </TableRow>
                     )}
                 </TableBody>
-                </Table>
-            </div>
-        </MuiThemeProvider>
+            </Table>
+        </Paper>
+        );
     }
 }
 
