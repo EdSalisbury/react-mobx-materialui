@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import Paper from 'material-ui/Paper';
-import { SortingState, LocalSorting } from '@devexpress/dx-react-grid'
-import { Grid, TableView, TableHeaderRow } from '@devexpress/dx-react-grid-material-ui'
+import { SortingState, LocalSorting, PagingState, LocalPaging } from '@devexpress/dx-react-grid'
+import { Grid, TableView, TableHeaderRow, PagingPanel } from '@devexpress/dx-react-grid-bootstrap3'
 
 @inject('PersonStore')
 @observer
@@ -20,16 +19,22 @@ class PersonList extends Component {
             { name: 'balance', title: 'Balance' }];
 
         return (
-            <Paper>
+
                 <Grid
                     columns={columns}
-                    rows={PersonStore.personData}>
+                    rows={PersonStore.personData}
+                    >
+                    <PagingState
+                        defaultCurrentPage={0}
+                        defaultPageSize={5}
+                    />
+                    <LocalPaging />
                     <SortingState />
                     <LocalSorting />
                     <TableView />
                     <TableHeaderRow allowSorting />
+                    <PagingPanel allowedPageSizes={[5, 10, 100, 1000]} />
                 </Grid>
-            </Paper>
         );
     }
 }
