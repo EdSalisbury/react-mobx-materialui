@@ -2,6 +2,35 @@
 # yarn lockfile v1
 
 
+"@devexpress/dx-core@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-core/-/dx-core-1.0.0-alpha.13.tgz#e1b75e473ad3e0308239af49f2f24e07aa589eb6"
+
+"@devexpress/dx-grid-core@1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-grid-core/-/dx-grid-core-1.0.0-alpha.13.tgz#7515e5f7135b6852aa8c4a816474ce4a99648e56"
+
+"@devexpress/dx-react-core@^1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-core/-/dx-react-core-1.0.0-alpha.13.tgz#41cc2b55d66d72cf28c53afb4aff4a410445fee5"
+  dependencies:
+    "@devexpress/dx-core" "1.0.0-alpha.13"
+    prop-types "^15.6.0"
+
+"@devexpress/dx-react-grid-material-ui@^1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid-material-ui/-/dx-react-grid-material-ui-1.0.0-alpha.13.tgz#cdb913811e9a56ffdd4532d6a4a0baf4cbf9dab4"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
+
+"@devexpress/dx-react-grid@^1.0.0-alpha.13":
+  version "1.0.0-alpha.13"
+  resolved "https://registry.yarnpkg.com/@devexpress/dx-react-grid/-/dx-react-grid-1.0.0-alpha.13.tgz#e72813c2c21b2935cdc229e2308cdc7fe28525b7"
+  dependencies:
+    "@devexpress/dx-grid-core" "1.0.0-alpha.13"
+    prop-types "^15.6.0"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -4236,6 +4265,12 @@ makeerror@1.0.x:
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
+
+material-ui-icons@^1.0.0-beta.17:
+  version "1.0.0-beta.17"
+  resolved "https://registry.yarnpkg.com/material-ui-icons/-/material-ui-icons-1.0.0-beta.17.tgz#5f19af54a2d99eeef347a55414a6853e1c850dc3"
+  dependencies:
+    recompose "^0.26.0"
 
 material-ui@^1.0.0-beta.17:
   version "1.0.0-beta.17"
